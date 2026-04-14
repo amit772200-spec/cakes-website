@@ -1,8 +1,8 @@
-import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getCakeById, CAKES } from "@/lib/cakes";
 import ContactForm from "./ContactForm";
+import BackButton from "./BackButton";
 
 export function generateStaticParams() {
   return CAKES.map((cake) => ({ id: cake.id }));
@@ -16,17 +16,14 @@ export default async function CakePage({ params }: { params: Promise<{ id: strin
   return (
     <div className="bg-[#FFF8F9] min-h-screen text-[#201A1B]">
       {/* ─── Header ─── */}
-      <header className="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-2xl border-b border-[#F8BBD0]/20 h-20 flex items-center px-6">
-        <Link href="/" className="text-[#201A1B] hover:bg-[#F8BBD0]/20 p-2 rounded-full transition-colors flex items-center gap-2 font-bold text-sm">
-          <span className="material-symbols-outlined">arrow_forward</span>
-          חזרה לקטלוג
-        </Link>
+      <header className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-2xl border-b border-[#F8BBD0]/20 h-16 flex items-center px-6 gap-4">
+        <BackButton />
         <div className="absolute left-1/2 -translate-x-1/2">
-          <Image src="/logo.png" alt="Rachel Bakery and Cake" width={120} height={60} className="object-contain" />
+          <Image src="/logo.png" alt="Rachel Bakery and Cake" width={100} height={50} className="object-contain" />
         </div>
       </header>
 
-      <main className="pt-28 pb-24 px-6 md:px-20 max-w-6xl mx-auto">
+      <main className="pt-24 pb-24 px-6 md:px-20 max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-12 items-start">
 
           {/* ─── Left: Cake Details ─── */}

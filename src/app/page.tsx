@@ -6,29 +6,24 @@ export default function Home() {
   return (
     <div className="bg-[#FFF8F9] text-[#201A1B]">
       {/* ─── Header ─────────────────────────────────────────── */}
-      <header className="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-2xl border-b border-[#F8BBD0]/20 h-20 flex items-center px-6">
-        <button className="text-[#201A1B] hover:bg-[#F8BBD0]/20 p-2 rounded-full transition-colors">
-          <span className="material-symbols-outlined">menu</span>
+      <header className="fixed top-0 w-full z-50 h-16 flex items-center px-6" style={{ background: "#FAE8DC" }}>
+        <button className="text-[#7a3a50] hover:bg-[#F8BBD0]/40 px-4 py-2 rounded-full transition-colors font-bold text-sm">
+          ☰ תפריט
         </button>
-        <div className="absolute left-1/2 -translate-x-1/2">
-          <Image src="/logo.png" alt="Rachel Bakery and Cake" width={120} height={60} className="object-contain" />
-        </div>
-        <div className="mr-auto flex items-center gap-2">
-          <button className="bg-[#F8BBD0]/20 text-[#31111D] p-2 rounded-full hover:bg-[#F8BBD0]/40 transition-colors">
-            <span className="material-symbols-outlined">favorite</span>
+        <div className="mr-auto">
+          <button className="text-[#7a3a50] hover:bg-[#F8BBD0]/40 px-4 py-2 rounded-full transition-colors font-bold text-sm">
+            ♡ מועדפים
           </button>
         </div>
       </header>
 
-      <main className="pt-20">
+      <main className="pt-16">
         {/* ─── Hero ─────────────────────────────────────────── */}
         <section
           className="relative min-h-[88vh] flex flex-col items-center justify-center px-6 overflow-hidden"
-          style={{ background: "radial-gradient(circle at top right, #FFD8E4 0%, #FFF8F9 60%)" }}
+          style={{ background: "#FAE8DC" }}
         >
-          <div className="absolute top-10 right-10 w-64 h-64 bg-[#F8BBD0] rounded-full opacity-20 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#B2DFDB] rounded-full opacity-20 blur-3xl pointer-events-none" />
-          <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-[#FFF9C4] rounded-full opacity-30 blur-2xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, #FFF8F9)" }} />
 
           <div className="soft-float z-10 mb-8">
             <Image
@@ -72,13 +67,15 @@ export default function Home() {
         <section className="py-24 px-6 md:px-20 bg-[#FFF8F9]">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-center">
             <div className="w-full md:w-2/5 grid grid-cols-2 gap-6 flex-shrink-0">
-              <div className="aspect-square bg-[#FFD8E4] rounded-3xl p-8 flex flex-col justify-end shadow-sm hover:shadow-md transition-shadow">
-                <span className="material-symbols-outlined text-[#31111D] text-4xl mb-4">restaurant</span>
-                <p className="font-bold text-[#31111D] text-lg">חומרי גלם עילית</p>
+              <div className="aspect-square bg-[#FFD8E4] rounded-3xl p-6 flex flex-col justify-end shadow-sm hover:shadow-md transition-shadow">
+                <span className="text-4xl mb-3">🌾</span>
+                <p className="font-black text-[#31111D] text-base leading-snug" style={{ fontFamily: "Noto Serif Hebrew, serif" }}>רק חומרי גלם מהשורה הראשונה</p>
+                <p className="text-[#31111D]/70 text-xs mt-1">שוקולד בלגי, קמח אורגני, פרי טרי בלבד</p>
               </div>
-              <div className="aspect-square bg-[#CFE9E7] rounded-3xl p-8 flex flex-col justify-end translate-y-10 shadow-sm hover:shadow-md transition-shadow">
-                <span className="material-symbols-outlined text-[#00201F] text-4xl mb-4">palette</span>
-                <p className="font-bold text-[#00201F] text-lg">עיצוב אישי</p>
+              <div className="aspect-square bg-[#CFE9E7] rounded-3xl p-6 flex flex-col justify-end translate-y-10 shadow-sm hover:shadow-md transition-shadow">
+                <span className="text-4xl mb-3">🎨</span>
+                <p className="font-black text-[#00201F] text-base leading-snug" style={{ fontFamily: "Noto Serif Hebrew, serif" }}>כל עוגה מעוצבת לפי הדמיון שלכם</p>
+                <p className="text-[#00201F]/70 text-xs mt-1">עיצוב אישי מלא לכל אירוע ובקשה</p>
               </div>
             </div>
             <div className="w-full md:w-3/5">
@@ -189,11 +186,11 @@ export default function Home() {
               ))}
             </nav>
             <div className="flex gap-4">
-              <button className="bg-[#F8BBD0]/20 p-3 rounded-full text-[#9d4867] hover:bg-[#F8BBD0]/40 transition-colors">
-                <span className="material-symbols-outlined">share</span>
+              <button className="bg-[#F8BBD0]/20 px-4 py-2 rounded-full text-[#9d4867] hover:bg-[#F8BBD0]/40 transition-colors text-sm font-bold">
+                🔗 שיתוף
               </button>
-              <button className="bg-[#F8BBD0]/20 p-3 rounded-full text-[#9d4867] hover:bg-[#F8BBD0]/40 transition-colors">
-                <span className="material-symbols-outlined">language</span>
+              <button className="bg-[#F8BBD0]/20 px-4 py-2 rounded-full text-[#9d4867] hover:bg-[#F8BBD0]/40 transition-colors text-sm font-bold">
+                🌐 שפה
               </button>
             </div>
           </div>
@@ -203,15 +200,15 @@ export default function Home() {
       {/* ─── Mobile Bottom Nav ─────────────────────────────── */}
       <nav className="fixed bottom-0 w-full flex justify-around items-center h-20 px-8 pb-4 md:hidden bg-white/80 backdrop-blur-xl rounded-t-3xl z-50 shadow-[0_-10px_40px_rgba(248,187,208,0.2)]">
         <a href="#catalog" className="flex flex-col items-center text-[#9d4867] font-bold">
-          <span className="material-symbols-outlined">grid_view</span>
+          <span className="text-2xl">▦</span>
           <span className="text-xs mt-1">גלריה</span>
         </a>
         <a href="#contact-cta" className="flex flex-col items-center text-[#514346] hover:text-[#9d4867] transition-colors">
-          <span className="material-symbols-outlined">auto_awesome</span>
+          <span className="text-2xl">✨</span>
           <span className="text-xs mt-1">הזמנה</span>
         </a>
         <a href="#" className="flex flex-col items-center text-[#514346] hover:text-[#9d4867] transition-colors">
-          <span className="material-symbols-outlined">person</span>
+          <span className="text-2xl">👤</span>
           <span className="text-xs mt-1">פרופיל</span>
         </a>
       </nav>
