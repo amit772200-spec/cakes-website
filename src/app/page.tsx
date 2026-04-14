@@ -160,6 +160,11 @@ export default function Home() {
 
         {/* ─── Footer ───────────────────────────────────────── */}
         <footer className="bg-[#FFF8F9] border-t border-[#F8BBD0]/20 pb-10">
+          <div className="text-center pt-6">
+            <Link href="/admin" className="text-xs text-[#514346]/20 hover:text-[#514346]/40 transition-colors">
+              ⚙
+            </Link>
+          </div>
           <div className="max-w-6xl mx-auto px-8 pt-16 pb-6 flex flex-col md:flex-row justify-between items-center gap-10">
             <div className="flex flex-col items-center md:items-start gap-4">
               <Image src="/logo.png" alt="Rachel Bakery and Cake" width={100} height={50} className="object-contain" />
