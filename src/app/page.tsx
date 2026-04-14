@@ -55,12 +55,12 @@ export default function Home() {
             >
               צפו בקטלוג שלנו
             </a>
-            <a
-              href="#contact-cta"
+            <Link
+              href="/contact"
               className="bg-white border-2 border-[#F8BBD0]/40 text-[#201A1B] px-10 py-4 rounded-full font-bold text-lg hover:bg-[#F8BBD0]/10 transition-all text-center"
             >
               צרו קשר
-            </a>
+            </Link>
           </div>
         </section>
 

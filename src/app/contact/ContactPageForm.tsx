@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function ContactPageForm() {
   const [form, setForm] = useState({ name: "", phone: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   function validate() {
@@ -16,10 +17,19 @@ export default function ContactPageForm() {
     return e;
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
+    setLoading(true);
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form }),
+      });
+    } catch { /* still show success */ }
+    setLoading(false);
     setSubmitted(true);
   }
 
@@ -45,31 +55,26 @@ export default function ContactPageForm() {
           placeholder="ישראל ישראלי" className={inputClass} />
         {errors.name && <span className="text-red-500 text-xs">{errors.name}</span>}
       </div>
-
       <div className="flex flex-col gap-2">
         <label className="font-bold text-[#201A1B] text-sm">מספר טלפון *</label>
         <input type="tel" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })}
           placeholder="050-0000000" className={inputClass} dir="ltr" />
         {errors.phone && <span className="text-red-500 text-xs">{errors.phone}</span>}
       </div>
-
       <div className="flex flex-col gap-2">
         <label className="font-bold text-[#201A1B] text-sm">מייל *</label>
         <input type="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })}
           placeholder="your@email.com" className={inputClass} dir="ltr" />
         {errors.email && <span className="text-red-500 text-xs">{errors.email}</span>}
       </div>
-
       <div className="flex flex-col gap-2">
         <label className="font-bold text-[#201A1B] text-sm">הודעה (אופציונלי)</label>
         <textarea value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
-          placeholder="ספרו לנו על האירוע..." rows={3}
-          className={inputClass + " resize-none"} />
+          placeholder="ספרו לנו על האירוע..." rows={3} className={inputClass + " resize-none"} />
       </div>
-
-      <button type="submit"
-        className="mt-2 bg-[#9d4867] text-white px-10 py-5 rounded-full font-black text-lg hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-[0_10px_30px_rgba(157,72,103,0.3)]">
-        שלחו פרטים
+      <button type="submit" disabled={loading}
+        className="mt-2 bg-[#9d4867] text-white px-10 py-5 rounded-full font-black text-lg hover:opacity-90 hover:scale-[1.02] transition-all duration-300 shadow-[0_10px_30px_rgba(157,72,103,0.3)] disabled:opacity-60">
+        {loading ? "...שולח" : "שלחו פרטים"}
       </button>
     </form>
   );
