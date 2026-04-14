@@ -21,8 +21,7 @@ export default function LoginForm() {
     });
 
     if (res.ok) {
-      router.push("/admin");
-      router.refresh();
+      window.location.href = "/admin";
     } else {
       setError("סיסמא שגויה, נסו שוב");
       setLoading(false);
