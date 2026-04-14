@@ -1,16 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createHash } from "crypto";
 
-export function middleware(req: NextRequest) {
+async function sha256(text: string): Promise<string> {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(text);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  // Only protect /admin routes (not /admin/login)
   if (pathname.startsWith("/admin") && !pathname.startsWith("/admin/login")) {
     const token = req.cookies.get("admin_token")?.value;
     const password = process.env.ADMIN_PASSWORD || "RACHEL123";
 
     if (token) {
-      const expected = createHash("sha256").update(password).digest("hex");
+      const expected = await sha256(password);
       if (token === expected) return NextResponse.next();
     }
 
