@@ -1,19 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CAKES } from "@/lib/cakes";
+import CakeCard from "@/app/components/CakeCard";
 
 export default function Home() {
   return (
     <div className="bg-[#FFF8F9] text-[#201A1B]">
       {/* ─── Header ─────────────────────────────────────────── */}
       <header className="fixed top-0 w-full z-50 h-16 flex items-center px-6" style={{ background: "#FAE8DC" }}>
-        <button className="text-[#7a3a50] hover:bg-[#F8BBD0]/40 px-4 py-2 rounded-full transition-colors font-bold text-sm">
-          ☰ תפריט
-        </button>
+        <Link href="/contact" className="text-[#7a3a50] hover:bg-[#F8BBD0]/40 px-4 py-2 rounded-full transition-colors font-bold text-sm">
+          צרו קשר
+        </Link>
         <div className="mr-auto">
-          <button className="text-[#7a3a50] hover:bg-[#F8BBD0]/40 px-4 py-2 rounded-full transition-colors font-bold text-sm">
+          <Link href="/favorites" className="text-[#7a3a50] hover:bg-[#F8BBD0]/40 px-4 py-2 rounded-full transition-colors font-bold text-sm">
             ♡ מועדפים
-          </button>
+          </Link>
         </div>
       </header>
 
@@ -66,20 +67,39 @@ export default function Home() {
         {/* ─── Features ─────────────────────────────────────── */}
         <section className="py-24 px-6 md:px-20 bg-[#FFF8F9]">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+            {/* Tiles */}
             <div className="w-full md:w-2/5 grid grid-cols-2 gap-6 flex-shrink-0">
-              <div className="aspect-square bg-[#FFD8E4] rounded-3xl p-6 flex flex-col justify-end shadow-sm hover:shadow-md transition-shadow">
-                <span className="text-4xl mb-3">🌾</span>
-                <p className="font-black text-[#31111D] text-base leading-snug" style={{ fontFamily: "Noto Serif Hebrew, serif" }}>רק חומרי גלם מהשורה הראשונה</p>
-                <p className="text-[#31111D]/70 text-xs mt-1">שוקולד בלגי, קמח אורגני, פרי טרי בלבד</p>
+              {/* Pink tile — ingredients */}
+              <div className="aspect-square bg-[#FFD8E4] rounded-3xl overflow-hidden flex flex-col justify-end shadow-sm hover:shadow-md transition-shadow relative">
+                <img
+                  src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=400&q=80"
+                  alt="חומרי גלם"
+                  className="absolute inset-0 w-full h-full object-cover opacity-40"
+                />
+                <div className="relative p-5">
+                  <p className="font-black text-[#31111D] text-base leading-snug" style={{ fontFamily: "Noto Serif Hebrew, serif" }}>
+                    רק חומרי גלם מהשורה הראשונה
+                  </p>
+                  <p className="text-[#31111D]/70 text-xs mt-1">שוקולד בלגי, קמח אורגני, פרי טרי בלבד</p>
+                </div>
               </div>
-              <div className="aspect-square bg-[#CFE9E7] rounded-3xl p-6 flex flex-col justify-end translate-y-10 shadow-sm hover:shadow-md transition-shadow">
-                <span className="text-4xl mb-3">🎨</span>
-                <p className="font-black text-[#00201F] text-base leading-snug" style={{ fontFamily: "Noto Serif Hebrew, serif" }}>כל עוגה מעוצבת לפי הדמיון שלכם</p>
-                <p className="text-[#00201F]/70 text-xs mt-1">עיצוב אישי מלא לכל אירוע ובקשה</p>
+              {/* Mint tile — custom design */}
+              <div className="aspect-square bg-[#CFE9E7] rounded-3xl overflow-hidden flex flex-col justify-end translate-y-10 shadow-sm hover:shadow-md transition-shadow relative">
+                <img
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
+                  alt="עיצוב אישי"
+                  className="absolute inset-0 w-full h-full object-cover opacity-35"
+                />
+                <div className="relative p-5">
+                  <p className="font-black text-[#00201F] text-base leading-snug" style={{ fontFamily: "Noto Serif Hebrew, serif" }}>
+                    כל עוגה מעוצבת לפי הדמיון שלכם
+                  </p>
+                  <p className="text-[#00201F]/70 text-xs mt-1">עיצוב אישי מלא לכל אירוע ובקשה</p>
+                </div>
               </div>
             </div>
+            {/* Text */}
             <div className="w-full md:w-3/5">
-              <span className="text-[#9d4867] font-bold tracking-widest uppercase text-sm mb-4 block">הפילוסופיה שלנו</span>
               <h2
                 className="text-4xl md:text-5xl font-black text-[#201A1B] mb-6 leading-tight"
                 style={{ fontFamily: "Noto Serif Hebrew, serif" }}
@@ -96,53 +116,20 @@ export default function Home() {
         {/* ─── Catalog ──────────────────────────────────────── */}
         <section id="catalog" className="py-24 px-6 md:px-20 bg-[#F2DDE1]/30">
           <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-14 gap-4">
-              <div>
-                <span className="text-[#9d4867] font-bold tracking-widest uppercase text-sm block mb-2">הקולקציה שלנו</span>
-                <h2
-                  className="text-5xl md:text-6xl font-black text-[#201A1B]"
-                  style={{ fontFamily: "Noto Serif Hebrew, serif" }}
-                >
-                  גלריית עוגות
-                </h2>
-              </div>
-              <p className="text-[#514346] max-w-xs text-right">
-                לחצו על כל עוגה להזמנה ומידע נוסף
-              </p>
+            <div className="text-center mb-14">
+              <span className="text-[#9d4867] font-bold tracking-widest uppercase text-sm block mb-2">הקולקציה שלנו</span>
+              <h2
+                className="text-5xl md:text-6xl font-black text-[#201A1B]"
+                style={{ fontFamily: "Noto Serif Hebrew, serif" }}
+              >
+                גלריית עוגות
+              </h2>
+              <p className="text-[#514346] mt-3">לחצו על כל עוגה להזמנה ומידע נוסף</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {CAKES.map((cake) => (
-                <Link
-                  key={cake.id}
-                  href={`/cake/${cake.id}`}
-                  className="group relative overflow-hidden rounded-3xl shadow-lg border-4 border-white aspect-[4/3] block scale-hover"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={cake.image}
-                    alt={cake.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#4A0018]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      {cake.tags.slice(0, 2).map((tag) => (
-                        <span key={tag} className="bg-[#FFF9C4]/80 text-[#211B00] text-xs font-bold px-3 py-1 rounded-full">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <h3 className="text-white text-xl font-black" style={{ fontFamily: "Noto Serif Hebrew, serif" }}>
-                      {cake.name}
-                    </h3>
-                    <p className="text-white/80 text-sm mt-1">{cake.description}</p>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-white/80 backdrop-blur-sm text-[#4A0018] text-xs font-bold px-3 py-1 rounded-full">
-                      {cake.category}
-                    </span>
-                  </div>
-                </Link>
+                <CakeCard key={cake.id} cake={cake} />
               ))}
             </div>
           </div>
@@ -172,8 +159,8 @@ export default function Home() {
         </section>
 
         {/* ─── Footer ───────────────────────────────────────── */}
-        <footer className="bg-[#FFF8F9] border-t border-[#F8BBD0]/20">
-          <div className="max-w-6xl mx-auto px-8 py-16 flex flex-col md:flex-row justify-between items-center gap-10">
+        <footer className="bg-[#FFF8F9] border-t border-[#F8BBD0]/20 pb-10">
+          <div className="max-w-6xl mx-auto px-8 pt-16 pb-6 flex flex-col md:flex-row justify-between items-center gap-10">
             <div className="flex flex-col items-center md:items-start gap-4">
               <Image src="/logo.png" alt="Rachel Bakery and Cake" width={100} height={50} className="object-contain" />
               <p className="text-sm text-[#514346]">© 2025 Rachel Bakery and Cake. כל הזכויות שמורות.</p>
@@ -197,21 +184,6 @@ export default function Home() {
         </footer>
       </main>
 
-      {/* ─── Mobile Bottom Nav ─────────────────────────────── */}
-      <nav className="fixed bottom-0 w-full flex justify-around items-center h-20 px-8 pb-4 md:hidden bg-white/80 backdrop-blur-xl rounded-t-3xl z-50 shadow-[0_-10px_40px_rgba(248,187,208,0.2)]">
-        <a href="#catalog" className="flex flex-col items-center text-[#9d4867] font-bold">
-          <span className="text-2xl">▦</span>
-          <span className="text-xs mt-1">גלריה</span>
-        </a>
-        <a href="#contact-cta" className="flex flex-col items-center text-[#514346] hover:text-[#9d4867] transition-colors">
-          <span className="text-2xl">✨</span>
-          <span className="text-xs mt-1">הזמנה</span>
-        </a>
-        <a href="#" className="flex flex-col items-center text-[#514346] hover:text-[#9d4867] transition-colors">
-          <span className="text-2xl">👤</span>
-          <span className="text-xs mt-1">פרופיל</span>
-        </a>
-      </nav>
     </div>
   );
 }
