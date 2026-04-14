@@ -161,7 +161,7 @@ export default function Home() {
         {/* ─── Footer ───────────────────────────────────────── */}
         <footer className="bg-[#FFF8F9] border-t border-[#F8BBD0]/20 pb-10">
           <div className="text-center pt-6">
-            <Link href="/admin" className="text-xs text-[#514346]/30 hover:text-[#514346]/60 transition-colors">
+            <Link href="/admin" className="text-xs text-[#514346]/50 hover:text-[#514346]/80 transition-colors">
               ADMIN
             </Link>
           </div>
