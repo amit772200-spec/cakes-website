@@ -22,7 +22,7 @@ export default function Home() {
         {/* ─── Hero ─────────────────────────────────────────── */}
         <section
           className="relative min-h-[88vh] flex flex-col items-center justify-center px-6 overflow-hidden"
-          style={{ background: "#FAE8DC" }}
+          style={{ background: "linear-gradient(135deg, #FAE8DC 0%, #F5E6C8 50%, #FAE8DC 100%)" }}
         >
           <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, #FFF8F9)" }} />
 
@@ -32,19 +32,19 @@ export default function Home() {
               alt="Rachel Bakery and Cake"
               width={400}
               height={400}
-              className="object-contain w-64 md:w-96"
+              className="object-contain w-64 md:w-96 mix-blend-multiply"
               priority
             />
           </div>
 
           <h1
-            className="z-10 text-3xl md:text-5xl font-black text-center text-[#201A1B] mb-4 leading-tight"
+            className="z-10 text-4xl md:text-6xl font-light text-center text-[#201A1B] mb-4 leading-tight tracking-wide"
             style={{ fontFamily: "Noto Serif Hebrew, serif" }}
           >
-            עיצוב עוגות יוקרה בהתאמה אישית
+            עיצוב עוגות בהתאמה אישית
           </h1>
 
-          <p className="z-10 text-lg text-[#514346] text-center max-w-lg mb-10 leading-relaxed">
+          <p className="z-10 text-base text-[#514346]/80 text-center max-w-lg mb-10 leading-relaxed font-light tracking-wide">
             כל עוגה היא יצירת מופת ייחודית — נאפה ומעוצבת ביד לאירוע שלכם
           </p>
 
@@ -70,7 +70,7 @@ export default function Home() {
             {/* Tiles */}
             <div className="w-full md:w-2/5 grid grid-cols-2 gap-6 flex-shrink-0">
               {/* Pink tile — ingredients */}
-              <div className="aspect-square bg-[#FFD8E4] rounded-3xl overflow-hidden flex flex-col justify-end shadow-sm hover:shadow-md transition-shadow relative">
+              <div className="tile-float-1 aspect-square bg-[#FFD8E4] rounded-3xl overflow-hidden flex flex-col justify-end shadow-sm hover:shadow-md transition-shadow relative">
                 <img
                   src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=400&q=80"
                   alt="חומרי גלם"
@@ -84,7 +84,7 @@ export default function Home() {
                 </div>
               </div>
               {/* Mint tile — custom design */}
-              <div className="aspect-square bg-[#CFE9E7] rounded-3xl overflow-hidden flex flex-col justify-end translate-y-10 shadow-sm hover:shadow-md transition-shadow relative">
+              <div className="tile-float-2 aspect-square bg-[#CFE9E7] rounded-3xl overflow-hidden flex flex-col justify-end translate-y-10 shadow-sm hover:shadow-md transition-shadow relative">
                 <img
                   src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
                   alt="עיצוב אישי"
@@ -101,12 +101,12 @@ export default function Home() {
             {/* Text */}
             <div className="w-full md:w-3/5">
               <h2
-                className="text-4xl md:text-5xl font-black text-[#201A1B] mb-6 leading-tight"
+                className="text-4xl md:text-5xl font-light text-[#201A1B] mb-6 leading-tight tracking-wide"
                 style={{ fontFamily: "Noto Serif Hebrew, serif" }}
               >
                 הסטנדרט החדש של עולם הקונדיטוריה
               </h2>
-              <p className="text-xl text-[#514346] leading-relaxed">
+              <p className="text-lg text-[#514346]/80 leading-relaxed font-light">
                 אנחנו לא רק אופים עוגות — אנחנו בונים זיכרונות. כל שכבה נבחרת בקפידה, כל עיטור נעשה בעבודת יד מוקפדת, וכל טעם מתוכנן לעורר השראה.
               </p>
             </div>
@@ -119,7 +119,7 @@ export default function Home() {
             <div className="text-center mb-14">
               <span className="text-[#9d4867] font-bold tracking-widest uppercase text-sm block mb-2">הקולקציה שלנו</span>
               <h2
-                className="text-5xl md:text-6xl font-black text-[#201A1B]"
+                className="text-5xl md:text-6xl font-light text-[#201A1B] tracking-wide"
                 style={{ fontFamily: "Noto Serif Hebrew, serif" }}
               >
                 גלריית עוגות
@@ -141,12 +141,12 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#B2DFDB]/30 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl pointer-events-none" />
           <div className="max-w-3xl mx-auto relative z-10">
             <h2
-              className="text-5xl md:text-6xl font-black text-[#31111D] mb-6 leading-tight"
+              className="text-5xl md:text-6xl font-light text-[#31111D] mb-6 leading-tight tracking-wide"
               style={{ fontFamily: "Noto Serif Hebrew, serif" }}
             >
               מוכנים ליצירה<br />הבאה שלכם?
             </h2>
-            <p className="text-xl text-[#31111D]/70 mb-10">
+            <p className="text-lg text-[#31111D]/60 mb-10 font-light">
               הצטרפו למאות הלקוחות שהפכו את האירוע שלהם לחוויה בלתי נשכחת.
             </p>
             <a
