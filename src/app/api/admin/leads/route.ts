@@ -38,7 +38,7 @@ export async function PATCH(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const { id, status } = await req.json();
+  const { id, ...fields } = await req.json();
 
   const supabase = createClient(
     process.env.SUPABASE_URL!,
@@ -47,7 +47,7 @@ export async function PATCH(req: NextRequest) {
 
   const { error } = await supabase
     .from("leads")
-    .update({ status })
+    .update(fields)
     .eq("id", id);
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
