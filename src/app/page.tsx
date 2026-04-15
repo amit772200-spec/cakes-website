@@ -188,8 +188,6 @@ export default function Home() {
 
         {/* ─── CTA ──────────────────────────────────────────── */}
         <section id="contact-cta" className="py-24 text-center px-6 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#F8BBD0]/30 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#B2DFDB]/30 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl pointer-events-none" />
           <div className="max-w-3xl mx-auto relative z-10">
             <h2
               className="text-5xl md:text-6xl font-light text-[#31111D] mb-6 leading-tight tracking-wide"
