@@ -5,7 +5,7 @@ import CakeCard from "@/app/components/CakeCard";
 
 export default function Home() {
   return (
-    <div className="bg-[#FFF8F9] text-[#201A1B]">
+    <div className="text-[#201A1B]" style={{ background: "linear-gradient(180deg, #F2D5C4 0%, #F8E8E0 20%, #FBF0EC 50%, #F8E8E0 80%, #F2D5C4 100%)" }}>
       {/* ─── Header ─────────────────────────────────────────── */}
       <header className="fixed top-0 w-full z-50 h-16 flex items-center px-6" style={{ background: "#F2D5C4" }}>
         <Link href="/contact" className="text-[#7a3a50] hover:bg-[#F8BBD0]/40 px-4 py-2 rounded-full transition-colors font-bold text-sm">
@@ -22,9 +22,7 @@ export default function Home() {
         {/* ─── Hero ─────────────────────────────────────────── */}
         <section
           className="relative min-h-[88vh] flex flex-col items-center justify-center px-6 overflow-hidden"
-          style={{ background: "#F2D5C4" }}
         >
-          <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, #FFF8F9)" }} />
 
           <div className="soft-float z-10 mb-8">
             <Image
@@ -65,7 +63,7 @@ export default function Home() {
         </section>
 
         {/* ─── Features ─────────────────────────────────────── */}
-        <section className="py-28 px-6 md:px-20 bg-[#FFF8F9]">
+        <section className="py-28 px-6 md:px-20">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-20 items-center">
             {/* Tiles */}
             <div className="w-full md:w-1/2 flex flex-col sm:grid sm:grid-cols-2 gap-6 flex-shrink-0">
@@ -115,7 +113,7 @@ export default function Home() {
         </section>
 
         {/* ─── How it works ─────────────────────────────────── */}
-        <section className="py-28 px-6 md:px-20" style={{ background: "linear-gradient(135deg, #FAE8DC 0%, #F5E6C8 100%)" }}>
+        <section className="py-28 px-6 md:px-20">
           <div className="max-w-5xl mx-auto text-center">
             <span className="text-[#9d4867] font-bold tracking-widest uppercase text-sm block mb-3">התהליך שלנו</span>
             <h2
@@ -167,7 +165,7 @@ export default function Home() {
         </section>
 
         {/* ─── Catalog ──────────────────────────────────────── */}
-        <section id="catalog" className="py-24 px-6 md:px-20 bg-[#F2DDE1]/30">
+        <section id="catalog" className="py-24 px-6 md:px-20">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-14">
               <span className="text-[#9d4867] font-bold tracking-widest uppercase text-sm block mb-2">הקולקציה שלנו</span>
@@ -189,7 +187,7 @@ export default function Home() {
         </section>
 
         {/* ─── CTA ──────────────────────────────────────────── */}
-        <section id="contact-cta" className="py-24 bg-[#FFD8E4] text-center px-6 relative overflow-hidden">
+        <section id="contact-cta" className="py-24 text-center px-6 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#F8BBD0]/30 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#B2DFDB]/30 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl pointer-events-none" />
           <div className="max-w-3xl mx-auto relative z-10">
@@ -212,7 +210,7 @@ export default function Home() {
         </section>
 
         {/* ─── Footer ───────────────────────────────────────── */}
-        <footer className="bg-[#FFD8E4] border-t border-[#F8BBD0]/30 py-8">
+        <footer className="border-t border-[#E8C4B4]/40 py-8">
           <div className="max-w-6xl mx-auto px-8 flex flex-col items-center gap-6">
             <Image src="/logo.png" alt="Rachel Bakery and Cake" width={80} height={40} className="object-contain mix-blend-multiply" />
             <nav className="flex flex-wrap justify-center gap-8">
