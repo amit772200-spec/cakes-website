@@ -2,27 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CAKES } from "@/lib/cakes";
 import CakeCard from "@/app/components/CakeCard";
-
-const REVIEWS = [
-  {
-    name: "מיכל כהן",
-    event: "בת מצווה",
-    text: "העוגה הייתה פשוט מושלמת. כל האורחים עצרו לצלם אותה לפני שחתכו — לא האמנתי שאפשר לעשות משהו כל כך יפה וטעים גם יחד.",
-    stars: 5,
-  },
-  {
-    name: "שירה לוי",
-    event: "חתונה",
-    text: "הזמנו עוגת חתונה בהתאמה אישית ורחל עלתה על כל הציפיות שלנו. השירות היה מדהים, התוצאה הייתה חלום. נמליץ לכולם!",
-    stars: 5,
-  },
-  {
-    name: "דנה אברהם",
-    event: "יום הולדת",
-    text: "הפתעתי את הבת שלי עם עוגה מותאמת לתחביבים שלה — היא פרצה בבכי מרוב רגש. תודה על הקסם!",
-    stars: 5,
-  },
-];
+import ReviewsCarousel from "@/app/components/ReviewsCarousel";
 
 export default function Home() {
   return (
@@ -81,7 +61,7 @@ export default function Home() {
         </section>
 
         {/* ─── Features ─────────────────────────────────────── */}
-        <section className="py-28 px-6 md:px-20">
+        <section className="py-28 px-6 md:px-20" style={{ background: "rgba(255,255,255,0.25)" }}>
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-20 items-center">
             <div className="w-full md:w-1/2 flex flex-col sm:grid sm:grid-cols-2 gap-6 flex-shrink-0">
               <div className="tile-float-1 bg-[#FFD8E4]/70 rounded-3xl overflow-hidden flex flex-col justify-end shadow-md hover:shadow-xl transition-shadow relative" style={{ minHeight: "220px" }}>
@@ -147,7 +127,7 @@ export default function Home() {
         </section>
 
         {/* ─── Catalog ──────────────────────────────────────── */}
-        <section id="catalog" className="py-24 px-6 md:px-20">
+        <section id="catalog" className="py-24 px-6 md:px-20" style={{ background: "rgba(255,255,255,0.25)" }}>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-14">
               <span className="text-[#9d4867] font-bold tracking-widest uppercase text-sm block mb-2">הקולקציה שלנו</span>
@@ -165,7 +145,7 @@ export default function Home() {
         </section>
 
         {/* ─── Reviews ──────────────────────────────────────── */}
-        <section className="py-28 px-6 md:px-20">
+        <section className="py-28 px-6 md:px-20" style={{ background: "rgba(255,255,255,0.25)" }}>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-14">
               <span className="text-[#9d4867] font-bold tracking-widest uppercase text-sm block mb-2">לקוחות מרוצים</span>
@@ -173,24 +153,7 @@ export default function Home() {
                 מה אומרים עלינו
               </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {REVIEWS.map((r, i) => (
-                <div key={i} className="bg-white/40 backdrop-blur-sm rounded-3xl p-8 shadow-sm border border-white/60 flex flex-col gap-4">
-                  <div className="flex gap-1">
-                    {Array.from({ length: r.stars }).map((_, s) => (
-                      <span key={s} className="text-[#9d4867] text-lg">★</span>
-                    ))}
-                  </div>
-                  <p className="text-[#514346] font-light leading-relaxed text-base flex-1">
-                    "{r.text}"
-                  </p>
-                  <div className="border-t border-[#F8BBD0]/30 pt-4">
-                    <p className="font-bold text-[#201A1B] text-sm">{r.name}</p>
-                    <p className="text-[#9d4867] text-xs font-light mt-0.5">{r.event}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ReviewsCarousel />
           </div>
         </section>
 
