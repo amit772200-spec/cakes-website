@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="bg-[#FFF8F9] text-[#201A1B]">
       {/* ─── Header ─────────────────────────────────────────── */}
-      <header className="fixed top-0 w-full z-50 h-16 flex items-center px-6" style={{ background: "#FAE8DC" }}>
+      <header className="fixed top-0 w-full z-50 h-16 flex items-center px-6" style={{ background: "#F2D5C4" }}>
         <Link href="/contact" className="text-[#7a3a50] hover:bg-[#F8BBD0]/40 px-4 py-2 rounded-full transition-colors font-bold text-sm">
           צרו קשר
         </Link>
@@ -22,22 +22,19 @@ export default function Home() {
         {/* ─── Hero ─────────────────────────────────────────── */}
         <section
           className="relative min-h-[88vh] flex flex-col items-center justify-center px-6 overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #FAE8DC 0%, #F5E6C8 50%, #FAE8DC 100%)" }}
+          style={{ background: "#F2D5C4" }}
         >
           <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, #FFF8F9)" }} />
 
-          {/* Logo with matching circular background */}
           <div className="soft-float z-10 mb-8">
-            <div className="rounded-full p-6" style={{ background: "radial-gradient(circle, #FAE8DC 60%, transparent 100%)" }}>
-              <Image
-                src="/logo.png"
-                alt="Rachel Bakery and Cake"
-                width={420}
-                height={420}
-                className="object-contain w-72 md:w-[420px] mix-blend-multiply"
-                priority
-              />
-            </div>
+            <Image
+              src="/logo.png"
+              alt="Rachel Bakery and Cake"
+              width={420}
+              height={420}
+              className="object-contain w-72 md:w-[420px] mix-blend-multiply"
+              priority
+            />
           </div>
 
           <h1
