@@ -68,31 +68,31 @@ export default function Home() {
         <section className="py-28 px-6 md:px-20 bg-[#FFF8F9]">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-20 items-center">
             {/* Tiles */}
-            <div className="w-full md:w-1/2 grid grid-cols-2 gap-8 flex-shrink-0">
-              <div className="tile-float-1 aspect-square bg-[#FFD8E4] rounded-3xl overflow-hidden flex flex-col justify-end shadow-md hover:shadow-xl transition-shadow relative">
+            <div className="w-full md:w-1/2 flex flex-col sm:grid sm:grid-cols-2 gap-6 flex-shrink-0">
+              <div className="tile-float-1 bg-[#FFD8E4] rounded-3xl overflow-hidden flex flex-col justify-end shadow-md hover:shadow-xl transition-shadow relative" style={{ minHeight: "200px" }}>
                 <img
                   src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=400&q=80"
                   alt="חומרי גלם"
                   className="absolute inset-0 w-full h-full object-cover opacity-40"
                 />
-                <div className="relative p-6">
-                  <p className="font-bold text-[#31111D] text-lg leading-snug" style={{ fontFamily: "Noto Serif Hebrew, serif" }}>
+                <div className="relative p-5">
+                  <p className="font-bold text-[#31111D] text-base leading-snug" style={{ fontFamily: "Noto Serif Hebrew, serif" }}>
                     רק חומרי גלם מהשורה הראשונה
                   </p>
-                  <p className="text-[#31111D]/70 text-sm mt-2">שוקולד בלגי, קמח אורגני, פרי טרי בלבד</p>
+                  <p className="text-[#31111D]/70 text-xs mt-1">שוקולד בלגי, קמח אורגני, פרי טרי בלבד</p>
                 </div>
               </div>
-              <div className="tile-float-2 aspect-square bg-[#CFE9E7] rounded-3xl overflow-hidden flex flex-col justify-end translate-y-10 shadow-md hover:shadow-xl transition-shadow relative">
+              <div className="tile-float-2 bg-[#CFE9E7] rounded-3xl overflow-hidden flex flex-col justify-end sm:translate-y-10 shadow-md hover:shadow-xl transition-shadow relative" style={{ minHeight: "200px" }}>
                 <img
                   src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
                   alt="עיצוב אישי"
                   className="absolute inset-0 w-full h-full object-cover opacity-35"
                 />
-                <div className="relative p-6">
-                  <p className="font-bold text-[#00201F] text-lg leading-snug" style={{ fontFamily: "Noto Serif Hebrew, serif" }}>
+                <div className="relative p-5">
+                  <p className="font-bold text-[#00201F] text-base leading-snug" style={{ fontFamily: "Noto Serif Hebrew, serif" }}>
                     כל עוגה מעוצבת לפי הדמיון שלכם
                   </p>
-                  <p className="text-[#00201F]/70 text-sm mt-2">עיצוב אישי מלא לכל אירוע ובקשה</p>
+                  <p className="text-[#00201F]/70 text-xs mt-1">עיצוב אישי מלא לכל אירוע ובקשה</p>
                 </div>
               </div>
             </div>
