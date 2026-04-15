@@ -61,7 +61,7 @@ export default function Home() {
         </section>
 
         {/* ─── Features ─────────────────────────────────────── */}
-        <section className="py-28 px-6 md:px-20" style={{ background: "rgba(255,255,255,0.25)" }}>
+        <section className="py-28 px-6 md:px-20" style={{ background: "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 20%, rgba(255,255,255,0.3) 80%, transparent 100%)" }}>
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-20 items-center">
             <div className="w-full md:w-1/2 flex flex-col sm:grid sm:grid-cols-2 gap-6 flex-shrink-0">
               <div className="tile-float-1 bg-[#FFD8E4]/70 rounded-3xl overflow-hidden flex flex-col justify-end shadow-md hover:shadow-xl transition-shadow relative" style={{ minHeight: "220px" }}>
@@ -127,7 +127,7 @@ export default function Home() {
         </section>
 
         {/* ─── Catalog ──────────────────────────────────────── */}
-        <section id="catalog" className="py-24 px-6 md:px-20" style={{ background: "rgba(255,255,255,0.25)" }}>
+        <section id="catalog" className="py-24 px-6 md:px-20" style={{ background: "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 20%, rgba(255,255,255,0.3) 80%, transparent 100%)" }}>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-14">
               <span className="text-[#9d4867] font-bold tracking-widest uppercase text-sm block mb-2">הקולקציה שלנו</span>
@@ -145,7 +145,7 @@ export default function Home() {
         </section>
 
         {/* ─── Reviews ──────────────────────────────────────── */}
-        <section className="py-28 px-6 md:px-20" style={{ background: "rgba(255,255,255,0.25)" }}>
+        <section className="py-28 px-6 md:px-20" style={{ background: "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 20%, rgba(255,255,255,0.3) 80%, transparent 100%)" }}>
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-14">
               <span className="text-[#9d4867] font-bold tracking-widest uppercase text-sm block mb-2">לקוחות מרוצים</span>

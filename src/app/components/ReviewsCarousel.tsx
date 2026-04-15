@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const REVIEWS = [
   { name: "מיכל כהן", event: "בת מצווה", text: "העוגה הייתה פשוט מושלמת. כל האורחים עצרו לצלם אותה לפני שחתכו — לא האמנתי שאפשר לעשות משהו כל כך יפה וטעים גם יחד.", stars: 5 },
@@ -14,24 +14,44 @@ const REVIEWS = [
 
 export default function ReviewsCarousel() {
   const [current, setCurrent] = useState(0);
-  const visible = 3;
   const total = REVIEWS.length;
+  const dragStart = useRef<number | null>(null);
 
-  function prev() {
-    setCurrent(c => (c - 1 + total) % total);
+  function prev() { setCurrent(c => (c - 1 + total) % total); }
+  function next() { setCurrent(c => (c + 1) % total); }
+
+  function onMouseDown(e: React.MouseEvent) { dragStart.current = e.clientX; }
+  function onMouseUp(e: React.MouseEvent) {
+    if (dragStart.current === null) return;
+    const diff = dragStart.current - e.clientX;
+    if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+    dragStart.current = null;
   }
-  function next() {
-    setCurrent(c => (c + 1) % total);
+  function onTouchStart(e: React.TouchEvent) { dragStart.current = e.touches[0].clientX; }
+  function onTouchEnd(e: React.TouchEvent) {
+    if (dragStart.current === null) return;
+    const diff = dragStart.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+    dragStart.current = null;
   }
 
-  const shown = Array.from({ length: visible }, (_, i) => REVIEWS[(current + i) % total]);
+  const shown = Array.from({ length: 3 }, (_, i) => ({
+    review: REVIEWS[(current + i) % total],
+    key: (current + i) % total,
+  }));
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-        {shown.map((r, i) => (
+      <div
+        className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 cursor-grab active:cursor-grabbing select-none"
+        onMouseDown={onMouseDown}
+        onMouseUp={onMouseUp}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+      >
+        {shown.map(({ review: r, key }) => (
           <div
-            key={i}
+            key={key}
             className="bg-white/40 backdrop-blur-sm rounded-3xl p-8 shadow-sm border border-white/60 flex flex-col gap-4 transition-all duration-500"
           >
             <div className="flex gap-1">
@@ -52,20 +72,20 @@ export default function ReviewsCarousel() {
 
       {/* Controls */}
       <div className="flex items-center justify-center gap-6">
-        <button onClick={prev} className="w-10 h-10 rounded-full bg-white/60 border border-[#F8BBD0]/40 text-[#9d4867] hover:bg-white/90 transition-all text-lg font-bold shadow-sm">
-          ›
+        <button onClick={next} className="w-10 h-10 rounded-full bg-white/60 border border-[#F8BBD0]/40 text-[#9d4867] hover:bg-white/90 transition-all text-xl font-bold shadow-sm">
+          ‹
         </button>
         <div className="flex gap-2">
           {REVIEWS.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`w-2 h-2 rounded-full transition-all ${i === current ? "bg-[#9d4867] w-5" : "bg-[#9d4867]/30"}`}
+              className={`h-2 rounded-full transition-all duration-300 ${i === current ? "bg-[#9d4867] w-5" : "bg-[#9d4867]/30 w-2"}`}
             />
           ))}
         </div>
-        <button onClick={next} className="w-10 h-10 rounded-full bg-white/60 border border-[#F8BBD0]/40 text-[#9d4867] hover:bg-white/90 transition-all text-lg font-bold shadow-sm">
-          ‹
+        <button onClick={prev} className="w-10 h-10 rounded-full bg-white/60 border border-[#F8BBD0]/40 text-[#9d4867] hover:bg-white/90 transition-all text-xl font-bold shadow-sm">
+          ›
         </button>
       </div>
     </div>
